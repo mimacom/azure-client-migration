@@ -2,7 +2,7 @@
 
 # abort if not admin
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    write-host -foregroundcolor red "Not running as administrator! Aborting."
+    write-host "Not running as administrator! Aborting." -foregroundcolor red 
 } else {
     $url = "https://raw.githubusercontent.com/mimacom/azure-client-migration/master/network-share/download.ps1"
     $install_folder_path = "$($env:systemdrive)\network-share"
