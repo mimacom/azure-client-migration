@@ -1,4 +1,11 @@
 #requires -runasadministrator
+
+# abort if not admin
+if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+    write-error "Not running as administrator! Aborting."
+    exit 1
+}
+
 $url = "https://raw.githubusercontent.com/mimacom/azure-client-migration/master/network-share/download.ps1"
 $install_folder_path = "$($env:systemdrive)\network-share"
 $install_path = "$($install_folder_path)\download.ps1"
