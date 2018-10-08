@@ -12,9 +12,9 @@ $downloader.DownloadFile($url, $install_path)
 # create shortcuts to allusers startup and startmenu folder
 $WshShell = New-Object -comObject WScript.Shell
 $startup_shortcut = $WshShell.CreateShortcut($startup_path)
-$startup_shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -file $($install_path)"
+$startup_shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -file $install_path"
 $startup_shortcut.Save()
 
 $startmenu_shortcut = $WshShell.CreateShortcut($startmenu_path)
-$startmenu_shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -file $($install_path)"
+$startmenu_shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -file $install_path"
 $startmenu_shortcut.Save()
