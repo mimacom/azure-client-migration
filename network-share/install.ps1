@@ -1,14 +1,21 @@
 #requires -runasadministrator
 
+# variables
+$url = "https://raw.githubusercontent.com/mimacom/azure-client-migration/master/network-share/download.ps1"
+$install_folder_path = "$($env:systemdrive)\network-share"
+$install_path = "$($install_folder_path)\download.ps1"
+$startup_path = "$($env:programdata)\Microsoft\Windows\Start Menu\Programs\Startup\Mount Network Drives.lnk"
+$startmenu_path = "$($env:programdata)\Microsoft\Windows\Start Menu\Programs\Mount Network Drives.lnk"
+
+
 # abort if not admin
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     write-host "Not running as administrator! Aborting." -foregroundcolor red 
 } else {
-    $url = "https://raw.githubusercontent.com/mimacom/azure-client-migration/master/network-share/download.ps1"
-    $install_folder_path = "$($env:systemdrive)\network-share"
-    $install_path = "$($install_folder_path)\download.ps1"
-    $startup_path = "$($env:programdata)\Microsoft\Windows\Start Menu\Programs\Startup\Mount Network Drives.lnk"
-    $startmenu_path = "$($env:programdata)\Microsoft\Windows\Start Menu\Programs\Mount Network Drives.lnk"
+    # remove probably already installed files
+    remove-item -recurse -ErrorAction Ignore -path $install_folder_path
+    remove-item -recurse -ErrorAction Ignore -path $startup_path
+    remove-item -recurse -ErrorAction Ignore -path $startup_path
     
     # download download.ps1 script
     new-item $install_folder_path -itemtype directory
