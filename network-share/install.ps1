@@ -1,3 +1,4 @@
+#requires -runasadministrator
 $url = "https://raw.githubusercontent.com/mimacom/azure-client-migration/master/network-share/download.ps1"
 $install_folder_path = "$($env:systemdrive)\network-share"
 $install_path = "$($install_folder_path)\download.ps1"
@@ -12,9 +13,11 @@ $downloader.DownloadFile($url, $install_path)
 # create shortcuts to allusers startup and startmenu folder
 $WshShell = New-Object -comObject WScript.Shell
 $startup_shortcut = $WshShell.CreateShortcut($startup_path)
-$startup_shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -file $install_path"
+$startup_shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+$startup_shortcut.Arguments = "-file $($install_path)"
 $startup_shortcut.Save()
 
 $startmenu_shortcut = $WshShell.CreateShortcut($startmenu_path)
-$startmenu_shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -file $install_path"
+$startmenu_shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+$startmenu_shortcut.Arguments = "-file $($install_path)"
 $startmenu_shortcut.Save()
