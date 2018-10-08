@@ -1,4 +1,4 @@
-$UserUPN = ([ADSI]"LDAP://<SID=$([System.Security.Principal.WindowsIdentity]::GetCurrent().User.Value)>").UserPrincipalName
+$UserUPN = whoami.exe /upn
 
 net use m: \\mima-nas-03.mimacom.local\secure /persistent:no /user:$UserUPN
 net use p: \\mima-nas-03.mimacom.local\projects /persistent:no /user:$UserUPN
