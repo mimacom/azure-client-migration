@@ -5,6 +5,7 @@ This folder contains a bunch of scripts which helps the Windows users to mount n
 # Quickstart
 
 On a Windows client, open a Powershell window and run:
+
     Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mimacom/azure-client-migration/master/network-share/install.ps1'))
 
 # Script description
