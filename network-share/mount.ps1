@@ -1,5 +1,5 @@
 $UserUPN = whoami.exe /upn
 
-net use m: \\mima-nas-03.mimacom.local\secure /persistent:no /user:$UserUPN
-net use p: \\mima-nas-03.mimacom.local\projects /persistent:no /user:$UserUPN
-net use s: \\mima-nas-03.mimacom.local\software /persistent:no /user:$UserUPN
+net use m: \\share.flowable.group\secure /persistent:no /user:$UserUPN
+net use p: \\share.flowable.group\projects /persistent:no /user:$UserUPN
+net use s: \\share.flowable.group\software /persistent:no /user:$UserUPN
