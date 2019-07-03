@@ -1,5 +1,3 @@
-#requires -runasadministrator
-
 # variables
 $install_folder_path = "$($env:systemdrive)\network-share"
 $startup_path = "$($env:programdata)\Microsoft\Windows\Start Menu\Programs\Startup\Mount Network Drives.lnk"
