@@ -10,7 +10,7 @@ net use m: /delete
 net use p: /delete
 net use s: /delete
 
-# # remove installation
-# remove-item -literalpath $install_folder_path -recurse
-# remove-item -literalpath $startup_path
-# remove-item -literalpath $startmenu_path
+# remove installation
+remove-item -literalpath $install_folder_path -recurse
+remove-item -literalpath $startup_path
+remove-item -literalpath $startmenu_path
